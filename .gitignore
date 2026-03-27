@@ -2,7 +2,10 @@
 node_modules/
 package-lock.json
 
-
+# Environment variables (CRITICAL: Contains your SAFAprivatekey and DeBank API)
+.env
+.env.local
+.env.*
 
 # Logs and debug files
 npm-debug.log*
