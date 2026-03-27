@@ -827,7 +827,27 @@ app.post("/oracle/eip712", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Backend is live and running!");
+  res.send(`
+    <div style="font-family: sans-serif; padding: 40px; line-height: 1.6; background: #0f172a; color: #f8fafc; min-height: 100vh;">
+      <h1 style="color: #fbbf24; border-bottom: 2px solid #fbbf24; padding-bottom: 10px;">Royale Bridge | Backend Protocol</h1>
+      <p style="font-weight: bold; color: #10b981;">● Status: Live & Operational</p>
+      <hr style="border: 0; border-top: 1px solid #334155; margin: 20px 0;">
+      
+      <h3>Active Configuration:</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li>🛡️ <b>Signer Address:</b> <code style="background: #1e293b; padding: 2px 6px; border-radius: 4px;">${signer_wallet_address}</code></li>
+        <li>📥 <b>Receiver Address:</b> <code style="background: #1e293b; padding: 2px 6px; border-radius: 4px;">${config.receiver}</code></li>
+        <li>🤖 <b>Telegram Bot:</b> Connected</li>
+        <li>📊 <b>DeBank API:</b> Connected</li>
+        <li>🌐 <b>Port:</b> ${PORT}</li>
+      </ul>
+
+      <p style="margin-top: 30px; font-size: 0.8em; color: #64748b;">
+        Target: ${process.env.NODE_ENV === 'production' ? 'Production' : 'Development Mode'}<br>
+        © 2026 Royale Connect | Secure Asset Protocol
+      </p>
+    </div>
+  `);
 });
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
